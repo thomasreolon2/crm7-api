@@ -20,7 +20,7 @@ router.post("/lead_create", LeadCreate.lead_create); //change the user status
 
 router.put("/client_refresh", ClientController.client_refresh);
 
-router.post("/insertID", IDOmniaController.insert_id_omnia);
+router.post("/insert_id", IDOmniaController.insert_id_omnia);
 //router.post("/tabeladepreco", PriceTabel.status); //change the user status
 
 module.exports = router;

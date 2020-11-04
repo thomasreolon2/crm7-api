@@ -53,17 +53,9 @@ module.exports = {
           var data = response.data;
           var acess_token = data["access_token"];
 
-          //SERVER_LESS PROCESS TOKEN RECEIVED
-
+      
           var formData = new FormData();
-          //formData.append("Numero", Numero);
-          // formData.append("Cliente_ID", Cliente_ID);
-
-          //jsonLineB = JSON.stringify(u);
-          //let jsonLineA = jsonLineB.replaceAll('"', "'");
-         
-          //console.log('"' + jsonLineA + '"');
-
+      
           var formData = new FormData();
           formData.append("Numero", Numero);
           formData.append("Cliente_ID", Cliente_ID);
