@@ -1,0 +1,8 @@
+VERSION: "2"
+SERVICES: 
+  crm7-integracao:
+    container_name: crm7
+    restart: always
+    build: .
+    ports:
+      - "5001:5001"
