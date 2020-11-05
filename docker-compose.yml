@@ -1,5 +1,5 @@
-VERSION: "2"
-SERVICES: 
+version: "2"
+services: 
   crm7-integracao:
     container_name: crm7
     restart: always
