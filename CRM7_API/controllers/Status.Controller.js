@@ -59,21 +59,10 @@ module.exports = {
               var codeMsgVerify = data_serverless.details["output"];
               var error = "erro";
               console.log(codeMsgVerify);
-              if (codeMsgVerify.includes("Erro")) {
-                const td = JSON.stringify(data_serverless).replace(
-                  'success',
-                  'erro'
-                );
-
-                var tempData = JSON.parse(td)
-                res.status(200).json({
-                  CRM7: tempData,
-                });
-              } else {
-                res.status(200).json({
-                  CRM7: data_serverless,
-                });
-              }
+        
+              res.status(200).json({
+                CRM7: data_serverless,
+              });
             })
             .catch(function (error) {
               console.log(error);
