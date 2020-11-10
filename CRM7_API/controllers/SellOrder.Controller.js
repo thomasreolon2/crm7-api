@@ -17,23 +17,7 @@ const pick_token_config = {
 
 module.exports = {
   sell_order: async (req, res) => {
-    const {
-      Numero,
-      Cliente_ID,
-      Codigo_do_Cliente,
-      Valor,
-      Cliente_loja,
-      Quantidade,
-      CNPJ,
-      Condicao_de_pagamento,
-      Produto_descricao,
-      Emissao,
-      Filial,
-      Valor_unitario,
-      Produto_ID,
-      nome_venda,
-      moeda,
-    } = req.body;
+    const u = req.body;
 
     try {
       //PÍCK TOKEN PROCESS....
@@ -56,25 +40,12 @@ module.exports = {
       
           var formData = new FormData();
       
+          let mapZ = JSON.stringify(u).replaceAll('"', `'`);
           var formData = new FormData();
-          formData.append("Numero", Numero);
-          formData.append("Cliente_ID", Cliente_ID);
-          formData.append("Codigo_do_Cliente", Codigo_do_Cliente);
-          formData.append("Valor", Valor);
-          formData.append("Cliente_loja", Cliente_loja);
-          formData.append("Quantidade", Quantidade);
-          formData.append("CNPJ", CNPJ);
-          formData.append("Condicao_de_pagamento", Condicao_de_pagamento);
-          formData.append("Produto_descricao", Produto_descricao);
-          formData.append("Emissao", Emissao);
-          formData.append("Filial", Filial);
-          formData.append("Valor_unitario", Valor_unitario);
-          formData.append("Produto_ID", Produto_ID);
-          formData.append("nome_venda", nome_venda);
-          formData.append("moeda", moeda);
 
-          console.log(formData);
+          formData.append("VendasCrmAPIRequest", '"' + mapZ + '"');
 
+          console.log('"' + mapZ + '"');
           //SELL ORDER PROCES....
 
           axios

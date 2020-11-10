@@ -39,13 +39,10 @@ module.exports = {
           console.log(acess_token);
           //SERVER_LESS PROCESS TOKEN RECEIVED
 
-          let mapZ = JSON.stringify(
-            u
-          ).replaceAll('"', `'`);
+          let mapZ = JSON.stringify(u).replaceAll('"', `'`);
           var formData = new FormData();
 
           formData.append("LeadCrmAPIRequest", '"' + mapZ + '"');
-        
 
           console.log('"' + mapZ + '"');
 
@@ -66,21 +63,21 @@ module.exports = {
               var codeMsgVerify = data_serverless.details["output"];
               var error = "erro";
               console.log(codeMsgVerify);
-            //  if (codeMsgVerify.includes("Erro")) {
-             //   const td = JSON.stringify(data_serverless).replace(
-            //      'success',
-            //      'error'
-             //   );
+              if (codeMsgVerify.includes("Erro")) {
+                const td = JSON.stringify(data_serverless).replace(
+                  "success",
+                  "error"
+                );
 
-             //   var tempData = JSON.parse(td)
-            //    res.status(200).json({
-             //     CRM7: tempData,
-          //      });
-          //    } else {
+                var tempData = JSON.parse(td);
+                res.status(200).json({
+                  CRM7: tempData,
+                });
+              } else {
                 res.status(200).json({
                   CRM7: data_serverless,
                 });
-           //   }
+              }
             })
             .catch(function (error) {
               console.log(error);
