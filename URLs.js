@@ -9,4 +9,4 @@ module.exports.get_vendas = "https://www.zohoapis.com/crm/v2/functions/consulta_
 module.exports.get_leads = "https://www.zohoapis.com/crm/v2/functions/consultar_vendas_endpoint/actions/execute?auth_type=oauth";
 
 //FG
-module.exports.fg_url = "http://ld2.ldsoft.com.br/ObterEnvolvidoPorCNPJCPF";
+module.exports.fg_url = "http://ld2.ldsoft.com.br/apol/webservice/wsEnvolvido.asmx?op=ObterEnvolvidoPorCNPJCPF";

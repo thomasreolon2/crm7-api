@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const xml_config = {
   headers: {
-    "Content-Type": "text/xml",
+    "Content-Type": "text/xml; charset=utf-8",
   },
 };
 
@@ -41,10 +41,10 @@ module.exports = {
   </soap12:Body>
 </soap12:Envelope>`;
 
-console.log(JSON.stringify(xmlBodyStr))
+    console.log(JSON.stringify(xmlBodyStr));
 
     axios
-      .post("url", xmlBodyStr, xml_config)
+      .post(fg_url, xmlBodyStr, xml_config)
       .then(function (response) {
         console.log(response);
       })

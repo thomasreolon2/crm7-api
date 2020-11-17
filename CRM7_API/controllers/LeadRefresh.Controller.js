@@ -36,15 +36,13 @@ module.exports = {
         .then(function (response) {
           var data = response.data;
           var acess_token = data["access_token"];
-          console.log(acess_token);
+
           //SERVER_LESS PROCESS TOKEN RECEIVED
 
           let mapZ = JSON.stringify(u).replaceAll('"', `'`);
           var formData = new FormData();
 
           formData.append("LeadCrmAPIRequest", '"' + mapZ + '"');
-
-          console.log('"' + mapZ + '"');
 
           //LEAD REFRESH PROCESS...
           axios
@@ -62,7 +60,7 @@ module.exports = {
               var data_serverless = response.data;
               var codeMsgVerify = data_serverless.details["output"];
               var error = "erro";
-              console.log(codeMsgVerify);
+           
               if (codeMsgVerify.includes("Erro")) {
                 const td = JSON.stringify(data_serverless).replace(
                   "success",

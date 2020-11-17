@@ -40,14 +40,7 @@ module.exports = {
           //SERVER_LESS PROCESS TOKEN RECEIVED
 
           var formData = new FormData();
-          //formData.append("Numero", Numero);
-          // formData.append("Cliente_ID", Cliente_ID);
-
-          //jsonLineB = JSON.stringify(u);
-          //let jsonLineA = jsonLineB.replaceAll('"', "'");
-
-          //console.log('"' + jsonLineA + '"');
-
+      
           var formData = new FormData();
           formData.append("ID_Omnia", ID_Omnia);
           formData.append("CNPJ", CNPJ);
@@ -68,25 +61,11 @@ module.exports = {
               },
             })
             .then(function (response) {
-              var data_serverless = response.data;
-              var codeMsgVerify = data_serverless.details["output"];
-              var error = "erro";
-              console.log(codeMsgVerify);
-              if (codeMsgVerify.includes("Erro")) {
-                const td = JSON.stringify(data_serverless).replace(
-                  'success',
-                  'error'
-                );
-
-                var tempData = JSON.parse(td)
-                res.status(200).json({
-                  CRM7: tempData,
-                });
-              } else {
+             
                 res.status(200).json({
                   CRM7: data_serverless,
                 });
-              }
+              
             })
             .catch(function (error) {
               console.log(error);

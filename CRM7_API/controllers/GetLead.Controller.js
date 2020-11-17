@@ -37,7 +37,6 @@ module.exports = {
         .then(function (response) {
           var data = response.data;
           var acess_token = data["access_token"];
-
       
           var formData = new FormData();
       
@@ -61,7 +60,7 @@ module.exports = {
               },
             })
             .then(function (response) {
-              if (response) {
+           
                 var data_serverless = response.data;
                 var codeMsgVerify = data_serverless.details["output"];
                 var error = "erro";
@@ -71,7 +70,7 @@ module.exports = {
                     CRM7: data_serverless,
                   });
                 
-              }
+              
             })
             .catch(function (error) {
               console.log(error);
