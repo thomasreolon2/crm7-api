@@ -20,7 +20,7 @@ var acess_token = null;
 
 module.exports = {
   insert_id_omnia: async (req, res) => {
-    const { CNPJ,ID_Omnia } = req.body;
+    const u = req.body;
 
     if (pickToken == false) {
       try {
@@ -49,9 +49,12 @@ module.exports = {
             }, 300000);
 
             //STATUS PROCES...
-
             var formData = new FormData();
-            formData.append("CNPJ", CNPJ);
+            let mapZ = JSON.stringify(u).replaceAll('"', `'`);
+            
+            console.log(mapZ);
+
+            formData.append("InserirIDCrmAPIRequest", '"' + mapZ + '"');
 
             axios
               .create({
@@ -70,10 +73,22 @@ module.exports = {
                 var error = "erro";
                 console.log(codeMsgVerify);
 
-             
+                if (codeMsgVerify.includes("Erro")) {
+                  const td = JSON.stringify(data_serverless).replace(
+                    "success",
+                    "error"
+                  );
+
+                  var tempData = JSON.parse(td);
+                  res.status(200).json({
+                    CRM7: tempData,
+                  });
+                } else {
                   res.status(200).json({
                     CRM7: data_serverless,
                   });
+                }
+                 
                 
               })
               .catch(function (error) {
@@ -89,7 +104,10 @@ module.exports = {
       }
     } else {
       var formData = new FormData();
-      formData.append("CNPJ", CNPJ);
+      let mapZ = JSON.stringify(u).replaceAll('"', `'`);
+      var formData = new FormData();
+
+      formData.append("InserirIDCrmAPIRequest", '"' + mapZ + '"');
 
       axios
         .create({
@@ -105,9 +123,21 @@ module.exports = {
         .then(function (response) {
           var data_serverless = response.data;
      
+          if (codeMsgVerify.includes("Erro")) {
+            const td = JSON.stringify(data_serverless).replace(
+              "success",
+              "error"
+            );
+
+            var tempData = JSON.parse(td);
+            res.status(200).json({
+              CRM7: tempData,
+            });
+          } else {
             res.status(200).json({
               CRM7: data_serverless,
             });
+          }
           
         })
         .catch(function (error) {
