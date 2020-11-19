@@ -60,7 +60,7 @@ module.exports = {
               },
             })
             .then(function (response) {
-           
+
                 var data_serverless = response.data;
                 var codeMsgVerify = data_serverless.details["output"];
                 var error = "erro";
@@ -69,8 +69,6 @@ module.exports = {
                   res.status(200).json({
                     CRM7: data_serverless,
                   });
-                
-              
             })
             .catch(function (error) {
               console.log(error);

@@ -77,7 +77,7 @@ module.exports = {
                   );
 
                   var tempData = JSON.parse(td);
-                  res.status(200).json({
+                  res.status(400).json({
                     CRM7: tempData,
                   });
                 } else {
@@ -125,7 +125,7 @@ module.exports = {
             );
 
             var tempData = JSON.parse(td);
-            res.status(200).json({
+            res.status(400).json({
               CRM7: tempData,
             });
           } else {
