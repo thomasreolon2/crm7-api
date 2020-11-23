@@ -7,6 +7,6 @@ module.exports.client_refresh_server_less_url = "https://www.zohoapis.com/crm/v2
 module.exports.insert_id_omnia_server_less_url = "https://www.zohoapis.com/crm/v2/functions/insercao_id_ominia/actions/execute?auth_type=oauth";
 module.exports.get_vendas = "https://www.zohoapis.com/crm/v2/functions/consulta_lead_endpoint_omnia/actions/execute?auth_type=oauth";
 module.exports.get_leads = "https://www.zohoapis.com/crm/v2/functions/consultar_vendas_endpoint/actions/execute?auth_type=oauth";
-
+module.exports.usi_lead_refresh = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_leads/actions/execute?auth_type=oauth";
 //FG
 module.exports.fg_url = "http://ld2.ldsoft.com.br/apol/webservice/wsEnvolvido.asmx?op=ObterEnvolvidoPorCNPJCPF";
