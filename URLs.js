@@ -8,5 +8,11 @@ module.exports.insert_id_omnia_server_less_url = "https://www.zohoapis.com/crm/v
 module.exports.get_vendas = "https://www.zohoapis.com/crm/v2/functions/consulta_lead_endpoint_omnia/actions/execute?auth_type=oauth";
 module.exports.get_leads = "https://www.zohoapis.com/crm/v2/functions/consultar_vendas_endpoint/actions/execute?auth_type=oauth";
 module.exports.usi_lead_refresh = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_leads/actions/execute?auth_type=oauth";
-//FG
+module.exports.usi_agent_url = "https://www.zohoapis.com/crm/v2/functions/usibras_enpoint_representantes/actions/execute?auth_type=oauth";
+module.exports.usi_account_contacts_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_conta_contato/actions/execute?auth_type=oauth";
+module.exports.usi_products_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_produtos/actions/execute?auth_type=oauth";
+module.exports.usi_orders_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_pedidos/actions/execute?auth_type=oauth";
+module.exports.usi_proposal_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_proposta/actions/execute?auth_type=oauth";
+module.exports.usi_agreement_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_contrato/actions/execute?auth_type=oauth";
+module.exports.usi_invoice_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_fatura/actions/execute?auth_type=oauth";
 module.exports.fg_url = "http://ld2.ldsoft.com.br/apol/webservice/wsEnvolvido.asmx?op=ObterEnvolvidoPorCNPJCPF";

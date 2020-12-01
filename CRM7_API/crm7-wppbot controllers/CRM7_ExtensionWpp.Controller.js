@@ -7,4 +7,4 @@
 
 const { PassThrough } = require("form-data");
 
-PassThrough
+PassThrough.toPrecision;
