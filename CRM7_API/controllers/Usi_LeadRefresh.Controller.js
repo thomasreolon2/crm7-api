@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const qs = require("qs");
-
+const tokenSave = require('../_helpers/tokenSave');
 const { pick_token_url } = require("../../URLs");
 const { usi_lead_refresh } = require("../../URLs");
 
@@ -41,12 +41,14 @@ module.exports = {
             var data = response.data;
 
             acess_token = data["access_token"];
-
             console.log(acess_token);
+
+         
             pickToken = true;
 
             setTimeout(function () {
               pickToken = false;
+              console.log("tokennnn:"+pickToken);
             }, 300000);
 
             //SERVER_LESS PROCESS TOKEN RECEIVED

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const qs = require("qs");
+const userService = require('../_helpers/user.service');
 
 const { pick_token_url } = require("../../URLs");
 const { usi_proposal_url } = require("../../URLs");
@@ -23,8 +24,8 @@ module.exports = {
     const u = req.body;
 
     if (pickToken == false) {
+
       try {
-        //PÍCK TOKEN PROCESS....
 
         axios
           .post(

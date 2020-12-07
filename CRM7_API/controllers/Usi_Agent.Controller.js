@@ -104,7 +104,7 @@ module.exports = {
       let mapZ = JSON.stringify(u).replaceAll('"', `'`);
       var formData = new FormData();
 
-      formData.append("LeadCrmAPIRequestUsibras", '"' + mapZ + '"');
+      formData.append("RepCrmAPIRequestUsibras", '"' + mapZ + '"');
 
       //LEAD REFRESH PROCESS...
       axios
@@ -123,21 +123,24 @@ module.exports = {
           var codeMsgVerify = data_serverless.details["output"];
           var error = "erro";
 
-          if (codeMsgVerify.includes("Erro")) {
-            const td = JSON.stringify(data_serverless).replace(
-              "success",
-              "error"
-            );
+          res.status(200).json({
+            CRM7: data_serverless,
+          });
+          // if (codeMsgVerify.includes("Error")) {
+          //   const td = JSON.stringify(data_serverless).replace(
+          //     "success",
+          //     "error"
+          //   );
 
-            var tempData = JSON.parse(td);
-            res.status(400).json({
-              CRM7: tempData,
-            });
-          } else {
-            res.status(200).json({
-              CRM7: data_serverless,
-            });
-          }
+          //   var tempData = JSON.parse(td);
+          //   res.status(400).json({
+          //     CRM7: tempData,
+          //   });
+          // } else {
+          //   res.status(200).json({
+          //     CRM7: data_serverless,
+          //   });
+          // }
         })
         .catch(function (error) {
           console.log(error);

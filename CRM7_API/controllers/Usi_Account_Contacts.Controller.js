@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const qs = require("qs");
-
 const { pick_token_url } = require("../../URLs");
 const { usi_account_contacts_url } = require("../../URLs");
 
