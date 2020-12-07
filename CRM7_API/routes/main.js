@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const basicAuth = require("../_helpers/basic-auth");
+//const errorHandler = require("../_helpers/error-handler");
+
 
 const SellOrderController = require("../controllers/SellOrder.Controller");
 const LeadRefreshController = require("../controllers/LeadRefresh.Controller");
@@ -24,21 +27,21 @@ router.post("/sell_order", SellOrderController.sell_order); //sell order
 
 router.put("/lead_refresh", LeadRefreshController.lead_refresh); //refresh the data of lead
 
-router.put("/usibras/customers", Usi_LeadRefreshController.usi_lead_refresh); //refresh the data of lead
+router.put("/usibras/customers", basicAuth, Usi_LeadRefreshController.usi_lead_refresh); //refresh the data of lead
 
-router.post("/usibras/agent", Usi_AgentController.usi_agent);
+router.post("/usibras/agent", basicAuth, Usi_AgentController.usi_agent);
 
-router.post ("/usibras/accounts_contact", Usi_Account_Contacts.usi_account_contacts);
+router.post ("/usibras/accounts_contact", basicAuth, Usi_Account_Contacts.usi_account_contacts);
 
-router.post ("/usibras/products", Usi_ProductsController.usi_products);
+router.post ("/usibras/products", basicAuth, Usi_ProductsController.usi_products);
 
-router.post ("/usibras/orders", Usi_OrdersController.usi_orders);
+router.post ("/usibras/orders", basicAuth, Usi_OrdersController.usi_orders);
 
-router.post ("/usibras/proposal", Usi_ProposalController.usi_proposal);
+router.post ("/usibras/proposal", basicAuth, Usi_ProposalController.usi_proposal);
 
-router.post ("/usibras/agreement", Usi_AgreementController.usi_agreement);
+router.post ("/usibras/agreement", basicAuth, Usi_AgreementController.usi_agreement);
 
-router.post ("/usibras/invoice", Usi_InvoiceController.usi_invoice);
+router.post ("/usibras/invoice", basicAuth, Usi_InvoiceController.usi_invoice);
 
 router.post("/status", StatusController.status); //change the user status
 
@@ -53,5 +56,6 @@ router.post("/insert_id", IDOmniaController.insert_id_omnia);
 router.get("/get_vendas", GetSellOrderController.get_vendas);
 
 router.get("/get_leads", GetLeadController.get_leads);
+
 
 module.exports = router;

@@ -10,7 +10,7 @@ const errorHandler = require("./CRM7_API/_helpers/error-handler");
 
 //app.use(basicAuth);
 // api routes
-///app.use("/users", require("./CRM7_API/_helpers/users.Controller"));
+//app.use("/users", require("./CRM7_API/_helpers/users.Controller"));
 
 // global error handler
 //app.use(errorHandler);
