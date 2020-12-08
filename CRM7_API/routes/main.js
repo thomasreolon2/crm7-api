@@ -20,6 +20,7 @@ const Usi_OrdersController = require("../controllers/Usi_Orders.Controller");
 const Usi_ProposalController = require("../controllers/Usi_Proposal.Controller");
 const Usi_AgreementController = require("../controllers/Usi_Agreement.Controller");
 const Usi_InvoiceController = require("../controllers/Usi_Invoice.Controller");
+const Usi_DeleteController = require("../controllers/Usi_Delete.Controller");
 
 //VERSION 1.2:
 
@@ -30,6 +31,9 @@ router.put("/lead_refresh", LeadRefreshController.lead_refresh); //refresh the d
 router.put("/usibras/customers", basicAuth, Usi_LeadRefreshController.usi_lead_refresh); //refresh the data of lead
 
 router.post("/usibras/agent", basicAuth, Usi_AgentController.usi_agent);
+
+router.delete("/usibras/delete", basicAuth, Usi_DeleteController.usi_delete);
+
 
 router.post ("/usibras/accounts_contact", basicAuth, Usi_Account_Contacts.usi_account_contacts);
 
