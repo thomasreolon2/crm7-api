@@ -35,9 +35,9 @@ router.post("/usibras/agent", basicAuth, Usi_AgentController.usi_agent);
 router.delete("/usibras/delete", basicAuth, Usi_DeleteController.usi_delete);
 
 
-router.post ("/usibras/accounts_contact", basicAuth, Usi_Account_Contacts.usi_account_contacts);
+//router.put ("/usibras/accounts_contact", basicAuth, Usi_Account_Contacts.usi_account_contacts);
 
-router.post ("/usibras/products", basicAuth, Usi_ProductsController.usi_products);
+router.put ("/usibras/products", basicAuth, Usi_ProductsController.usi_products);
 
 router.post ("/usibras/orders", basicAuth, Usi_OrdersController.usi_orders);
 
