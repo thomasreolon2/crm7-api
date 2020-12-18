@@ -5,7 +5,7 @@ const qs = require("qs");
 const userService = require('../_helpers/user.service');
 
 const { pick_token_url } = require("../../URLs");
-const { usi_proposal_url } = require("../../URLs");
+const { usi_agreement_url } = require("../../URLs");
 
 const FormData = require("form-data");
 require("dotenv").config();
@@ -20,7 +20,7 @@ var pickToken = false;
 var acess_token = null;
 
 module.exports = {
-  usi_proposal: async (req, res) => {
+    usi_agree: async (req, res) => {
     const u = req.body;
 
     if (pickToken == false) {
@@ -55,14 +55,14 @@ module.exports = {
             let mapZ = JSON.stringify(u).replaceAll('"', `'`);
             var formData = new FormData();
 
-            formData.append("PropostaCrmAPIRequestUsibras", '"' + mapZ + '"');
+            formData.append("ContratoCrmAPIRequestUsibras", '"' + mapZ + '"');
 
             //LEAD REFRESH PROCESS...
             axios
               .create({
                 headers: formData.getHeaders(),
               })
-              .post(usi_proposal_url, formData, {
+              .post(usi_agreement_url, formData, {
                 headers: {
                   auth_type: "oauth",
                   Authorization: "Zoho-oauthtoken " + acess_token,
@@ -105,14 +105,14 @@ module.exports = {
       let mapZ = JSON.stringify(u).replaceAll('"', `'`);
       var formData = new FormData();
 
-      formData.append("PropostaCrmAPIRequestUsibras", '"' + mapZ + '"');
+      formData.append("ContratoCrmAPIRequestUsibras", '"' + mapZ + '"');
 
       //LEAD REFRESH PROCESS...
       axios
         .create({
           headers: formData.getHeaders(),
         })
-        .post(usi_proposal_url, formData, {
+        .post(usi_agreement_url, formData, {
           headers: {
             auth_type: "oauth",
             Authorization: "Zoho-oauthtoken " + acess_token,

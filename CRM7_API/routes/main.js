@@ -18,7 +18,7 @@ const Usi_Account_Contacts = require("../controllers/Usi_Account_Contacts.Contro
 const Usi_ProductsController = require("../controllers/Usi_Products.Controller");
 const Usi_OrdersController = require("../controllers/Usi_Orders.Controller");
 const Usi_ProposalController = require("../controllers/Usi_Proposal.Controller");
-const Usi_AgreementController = require("../controllers/Usi_Agreement.Controller");
+const Usi_AgreementController = require("../controllers/Usi_Agree.Controller");
 const Usi_InvoiceController = require("../controllers/Usi_Invoice.Controller");
 const Usi_DeleteController = require("../controllers/Usi_Delete.Controller");
 
@@ -43,7 +43,7 @@ router.post ("/usibras/orders", basicAuth, Usi_OrdersController.usi_orders);
 
 router.post ("/usibras/proposal", basicAuth, Usi_ProposalController.usi_proposal);
 
-router.post ("/usibras/agreement", basicAuth, Usi_AgreementController.usi_agreement);
+router.post ("/usibras/agreement", basicAuth, Usi_AgreementController.usi_agree);
 
 router.post ("/usibras/invoice", basicAuth, Usi_InvoiceController.usi_invoice);
 
