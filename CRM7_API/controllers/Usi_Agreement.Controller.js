@@ -54,7 +54,7 @@ module.exports = {
             let mapZ = JSON.stringify(u).replaceAll('"', `'`);
             var formData = new FormData();
 
-            formData.append("PropostaCrmAPIRequestUsibras", '"' + mapZ + '"');
+            formData.append("ContratoCrmAPIRequestUsibras", '"' + mapZ + '"');
 
             //LEAD REFRESH PROCESS...
             axios
