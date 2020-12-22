@@ -31,7 +31,12 @@ module.exports = {
           var data_serverless = response.data;
           var codeMsgVerify = data_serverless.details["output"];
           var error = "erro";
+          if (data_serverless.code == "INVALID_DATA") {
+            res.status(400).json({
+              CRM7: data_serverless.message,
+            });
 
+          }
           if (codeMsgVerify.includes("Erro")) {
             const td = JSON.stringify(data_serverless).replace(
               "success",
@@ -50,6 +55,7 @@ module.exports = {
         })
         .catch(function (error) {
           console.log(error);
+          res.status(422).send(error.message);
         });
     } catch (err) {
       res.status(422).send(err.message);
