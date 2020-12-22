@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const basicAuth = require("../_helpers/basic-auth");
+const token = require("../_helpers/token");
 //const errorHandler = require("../_helpers/error-handler");
 
 
 const SellOrderController = require("../controllers/SellOrder.Controller");
 const LeadRefreshController = require("../controllers/LeadRefresh.Controller");
 const StatusController = require("../controllers/Status.Controller");
-const LeadCreate = require("../controllers/LeadCreate.Controller");
+const LeadCreateController = require("../controllers/LeadCreate.Controller");
 const ClientController = require("../controllers/ClientRefresh.Controller");
 const IDOmniaController = require("../controllers/InsertIDomnia.Controller");
 const GetSellOrderController = require("../controllers/GetSellOrder.Controller");
@@ -24,42 +25,41 @@ const Usi_DeleteController = require("../controllers/Usi_Delete.Controller");
 
 //VERSION 1.2:
 
-router.post("/sell_order", SellOrderController.sell_order); //sell order
+router.post("/sell_order", token, SellOrderController.sell_order); //sell order
 
-router.put("/lead_refresh", LeadRefreshController.lead_refresh); //refresh the data of lead
+router.put("/lead_refresh", token, LeadRefreshController.lead_refresh); //refresh the data of lead
 
-router.put("/usibras/customers", basicAuth, Usi_LeadRefreshController.usi_lead_refresh); //refresh the data of lead
+router.put("/usibras/customers", basicAuth, token, Usi_LeadRefreshController.usi_lead_refresh); //refresh the data of lead
 
-router.post("/usibras/agent", basicAuth, Usi_AgentController.usi_agent);
+router.post("/usibras/agent", basicAuth, token, Usi_AgentController.usi_agent);
 
-router.delete("/usibras/delete", basicAuth, Usi_DeleteController.usi_delete);
+router.delete("/usibras/delete", basicAuth, token, Usi_DeleteController.usi_delete);
 
+router.put("/usibras/accounts_contact", basicAuth, token, Usi_Account_Contacts.usi_account_contacts);
 
-router.put ("/usibras/accounts_contact", basicAuth, Usi_Account_Contacts.usi_account_contacts);
+router.put("/usibras/products", basicAuth, token, Usi_ProductsController.usi_products);
 
-router.put ("/usibras/products", basicAuth, Usi_ProductsController.usi_products);
+router.post("/usibras/orders", basicAuth, token, Usi_OrdersController.usi_orders);
 
-router.post ("/usibras/orders", basicAuth, Usi_OrdersController.usi_orders);
+router.post("/usibras/proposal", basicAuth, token, Usi_ProposalController.usi_proposal);
 
-router.post ("/usibras/proposal", basicAuth, Usi_ProposalController.usi_proposal);
+router.post("/usibras/agreement", basicAuth, token, Usi_AgreementController.usi_agree);
 
-router.post ("/usibras/agreement", basicAuth, Usi_AgreementController.usi_agree);
+router.post("/usibras/invoice", basicAuth, token, Usi_InvoiceController.usi_invoice);
 
-router.post ("/usibras/invoice", basicAuth, Usi_InvoiceController.usi_invoice);
+router.post("/status", token, StatusController.status); //change the user status
 
-router.post("/status", StatusController.status); //change the user status
+router.post("/lead_create", token, LeadCreateController.lead_create); //change the user status
 
-router.post("/lead_create", LeadCreate.lead_create); //change the user status
+router.put("/client_refresh", token, ClientController.client_refresh);
 
-router.put("/client_refresh", ClientController.client_refresh);
-
-router.post("/insert_id", IDOmniaController.insert_id_omnia);
+router.post("/insert_id", token, IDOmniaController.insert_id_omnia);
 
 //router.post("/tabeladepreco", PriceTabel.status); //change the user status
 
-router.get("/get_vendas", GetSellOrderController.get_vendas);
+router.get("/get_vendas", token, GetSellOrderController.get_vendas);
 
-router.get("/get_leads", GetLeadController.get_leads);
+router.get("/get_leads", token, GetLeadController.get_leads);
 
 
 module.exports = router;

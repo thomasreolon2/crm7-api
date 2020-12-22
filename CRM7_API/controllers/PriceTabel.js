@@ -1,23 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const qs = require("qs");
-
-const { pick_token_url } = require("../../URLs");
 const { sell_order_server_less_url } = require("../../URLs");
 
 const FormData = require("form-data");
 require("dotenv").config();
 
-const pick_token_config = {
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-  },
-};
 
 module.exports = {
   
-  sell_order: async (req, res) => {
+  sell_order: async (acess_token, req, res, next) => {
 
     const u = {
         CODIGO,
@@ -35,38 +27,19 @@ module.exports = {
     } = req.body;
 
     try {
-      //PÍCK TOKEN PROCESS....
-
-      axios
-        .post(
-          pick_token_url,
-          qs.stringify({
-            refresh_token: process.env.REFRESH_TOKEN,
-            client_id: process.env.CLIENT_ID,
-            client_secret: process.env.CLIENT_SECRET,
-            grant_type: "refresh_token",
-          }),
-          pick_token_config
-        )
-        .then(function (response) {
-          var data = response.data;
-          var acess_token = data["access_token"];
-
-          //SERVER_LESS PROCESS TOKEN RECEIVED
 
           var formData = new FormData();
          //formData.append("Numero", Numero);
          // formData.append("Cliente_ID", Cliente_ID);
         
          jsonLineB = JSON.stringify(u);
-         let jsonLineA = jsonLineB.replaceAll('"', "'");
+         let jsonLineA = jsonLineB.replace(/"/g, `'`);
 
          console.log('"' + jsonLineA + '"');
 
          var formData = new FormData();
          formData.append("tabela_de_preco", '"'+jsonLineA+'"');
 
-          //SELL ORDER PROCES....
 
           axios
             .create({
@@ -93,10 +66,7 @@ module.exports = {
               console.log(error);
             });
           ////////
-        })
-        .catch(function (error) {
-          res.status(422).send(error.message);
-        });
+       
     } catch (err) {
       res.status(422).send(err.message);
     }
