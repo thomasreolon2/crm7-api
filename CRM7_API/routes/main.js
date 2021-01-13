@@ -22,6 +22,8 @@ const Usi_ProposalController = require("../controllers/Usi_Proposal.Controller")
 const Usi_AgreementController = require("../controllers/Usi_Agree.Controller");
 const Usi_InvoiceController = require("../controllers/Usi_Invoice.Controller");
 const Usi_DeleteController = require("../controllers/Usi_Delete.Controller");
+const Igu_Serasa_Response = require("../controllers/Igu_Serasa_ResponseController");
+const Igu_Serasa_ResponseController = require("../controllers/Igu_Serasa_ResponseController");
 
 //VERSION 1.2:
 
@@ -47,6 +49,8 @@ router.post("/usibras/agreement", basicAuth, token, Usi_AgreementController.usi_
 
 router.post("/usibras/invoice", basicAuth, token, Usi_InvoiceController.usi_invoice);
 
+router.post("/iguana/serasa_response", basicAuth, token, Igu_Serasa_ResponseController.igu_serasa_response);
+
 router.post("/status", token, StatusController.status); //change the user status
 
 router.post("/lead_create", token, LeadCreateController.lead_create); //change the user status
@@ -60,6 +64,4 @@ router.post("/insert_id", token, IDOmniaController.insert_id_omnia);
 router.get("/get_vendas", token, GetSellOrderController.get_vendas);
 
 router.get("/get_leads", token, GetLeadController.get_leads);
-
-
 module.exports = router;

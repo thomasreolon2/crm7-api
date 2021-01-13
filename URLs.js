@@ -17,3 +17,4 @@ module.exports.usi_agreement_url = "https://www.zohoapis.com/crm/v2/functions/us
 module.exports.usi_invoice_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_fatura/actions/execute?auth_type=oauth";
 module.exports.fg_url = "http://ld2.ldsoft.com.br/apol/webservice/wsEnvolvido.asmx?op=ObterEnvolvidoPorCNPJCPF";
 module.exports.usi_delete_url = "https://www.zohoapis.com/crm/v2/functions/usibras_endpoint_delete/actions/execute?auth_type=oauth";
+module.exports.igu_serasa_response_url = "https://www.zohoapis.com/crm/v2/functions/respostaserasacrmapirequestiguana/actions/execute?auth_type=oauth";
